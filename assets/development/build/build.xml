@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+IMPORTANT: Project name is important, as this build script packages 'manakor.js'
+JavaScript file. Therefore when changing, keep in mind to rename desired
+'assets/development/scripts/manakor.js' file as well.
+However, this can be easily configured as you wish afterwards. If you wish to 
+improve your build script, learn Apache Ant tasks a bit...
+-->
+<project name="manakor" basedir="../../">
+	<description>
+		Build script, which builds packaged project version ready for
+		production environment.
+
+		Author:
+		Nik Sumeiko, http://manakor.org
+
+		Copyright:
+		* Nik Sumeiko (c) 2012, Edition Rights
+		* Manakor Labs (c) 2012, All Rights Reserved
+
+		License:
+		BSD License
+		http://creativecommons.org/licenses/BSD/
+  	</description>
+
+	<import file="macros.xml" />
+
+	<!--
+	Define development folder Absolute locations are needed for the build 
+	config; otherwise, locations are relative to the config file. Paths use '/' 
+	as separator even on Windows, otherwise '\' results in escape sequences in 
+	JavaScript strings.
+	-->
+	<pathconvert property="development.dir" dirsep="/">
+		<path location="development" />
+	</pathconvert>
+
+	<pathconvert property="production.dir" dirsep="/">
+		<path location="production" />
+	</pathconvert>
+
+	<pathconvert property="root.dir" dirsep="/">
+		<path location="../" />
+	</pathconvert>
+
+
+
+	<!--
+	Build task includes all the tasks listened below, however each of those 
+	could be executed separately as well. Example
+	ant build (makes a full build by executing all task)
+	ant prepare (executes only prepare task)
+	-->
+	<target name="build" depends="prepare, copy, compress, package" />
+
+
+
+	<target name="prepare">
+		<echo>Creating 'styles' and 'scripts' build folders...</echo>
+		<mkdir dir="${production.dir}/prebuild/styles" />
+		<mkdir dir="${production.dir}/prebuild/scripts" />
+	</target>
+
+
+
+	<target name="copy">
+		<pathconvert property="prebuild.dir" dirsep="/">
+			<path location="${production.dir}/prebuild" />
+		</pathconvert>
+
+		<echo>Copying all CSS files into 'styles' prebuild folder...</echo>
+		<copy todir="${prebuild.dir}/styles">
+			<fileset dir="${development.dir}/styles">
+				<include name="**/*.css" />
+			</fileset>
+		</copy>
+
+		<echo>Copying all JavaScript files into 'scripts' prebuild folder...
+			</echo>
+			
+		<copy todir="${prebuild.dir}/scripts">
+			<fileset dir="${development.dir}/scripts">
+				<include name="**/*.js" />
+			</fileset>
+		</copy>
+	</target>
+
+
+
+	<target name="compress">
+		<echo>Compressing JavaScript/CSS files with YUI Compressor...</echo>
+
+		<pathconvert property="prebuild.dir" dirsep="/">
+			<path location="${production.dir}/prebuild" />
+		</pathconvert>
+
+		<yuicompressor
+			in="${prebuild.dir}/scripts/${ant.project.name}.js"
+			out="${prebuild.dir}/scripts/${ant.project.name}-min.js"
+		/>
+
+		<delete file="${prebuild.dir}/scripts/${ant.project.name}.js" />
+
+
+		<yuicompressor
+			in="${prebuild.dir}/styles/styles.css"
+			out="${prebuild.dir}/styles/styles-min.css"
+		/>
+
+		<delete>
+			<fileset dir="${prebuild.dir}/styles">
+				<exclude name="**/*-min.css" />
+			</fileset>
+		</delete>
+	</target>
+
+
+
+	<target name="package" depends="setVersion">
+		<echo>Packaging new build into project version folder</echo>
+
+		<pathconvert property="prebuild.dir" dirsep="/">
+			<path location="${production.dir}/prebuild" />
+		</pathconvert>
+
+		<echo>Updating build project version... New version is '${VERSION}'
+			</echo>
+		
+		<replaceregexp
+			file="${root.dir}/version.ini"
+			match="^version\s=\s(.*)"
+			replace="version = ${VERSION}"
+			byline="true"
+		/>
+
+		<echo>Assigning new project version to CSS/JavaScript compressed files
+			</echo>
+		
+		<move
+			file="${prebuild.dir}/scripts/${ant.project.name}-min.js"
+			tofile="${prebuild.dir}/scripts/${ant.project.name}-min-${VERSION}.js"
+		/>
+
+		<move
+			file="${prebuild.dir}/styles/styles-min.css"
+			tofile="${prebuild.dir}/styles/styles-min-${VERSION}.css"
+		/>
+
+		<move todir="${production.dir}/${VERSION}">
+			<fileset dir="${prebuild.dir}" />
+		</move>
+
+		<echo>Congrats! Project is ready to be deployed to production
+			environment.</echo>
+	</target>
+
+
+
+	<target name="setVersion">
+		<!--
+		Sets new project build version automatically, based on current 
+		timestamp in CET timezone.
+		-->
+		<tstamp>
+			<format property="VERSION" pattern="ddMMyyyyHHmm" timezone="GMT+2" />
+		</tstamp>
+	</target>
+
+</project>

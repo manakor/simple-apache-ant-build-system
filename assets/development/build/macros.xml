@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="macros">
+	<description>
+		Macro definitions for build script
+
+		These macro definitions allow to use a simpler syntax to call the tools
+		included in lib folder.
+
+		Authors:
+		* Eric Brechemier, http://eric.brechemier.name
+		* Marc Delhommeau
+		* Nik Sumeiko, http://manakor.org
+
+		Copyright:
+		* Nik Sumeiko (c) 2012, Edition Rights
+		* Eric Brechemier (c) 2011, Some Rights Reserved
+		* Legal-Box SAS (c) 2010-2011, All Rights Reserved
+
+		License:
+		BSD License
+		http://creativecommons.org/licenses/BSD/
+  	</description>
+
+	<!-- Parent folder of the imported macros.xml file -->
+	<dirname property="macros.basedir" file="${ant.file.macros}" />
+
+	<!-- Minify JavaScript/CSS files -->
+	<macrodef name="yuicompressor">
+		<attribute name="in" description="path to input file" />
+		<attribute name="out" description="path to output file (minified)" />
+		<sequential>
+			<echo>yuicompressor: started processing @{in} => @{out}</echo>
+			<java jar="${macros.basedir}/lib/yuicompressor/yuicompressor-2.4.2.jar"
+				fork="true" failonerror="true">
+				<arg value="-v" />
+				<arg line="--charset UTF-8" />
+				<arg line="-o @{out}" />
+				<arg line="@{in}" />
+			</java>
+			<echo>yuicompressor: completed @{in} => @{out}</echo>
+			<echo />
+		</sequential>
+	</macrodef>
+
+</project>
