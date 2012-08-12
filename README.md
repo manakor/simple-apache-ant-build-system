@@ -51,8 +51,8 @@ Root ``assets/`` directory holds 2 sub-directories, where development and
 production Frontend resources are kept separated. Production part is updated
 automatically on every new build, however ``development/`` folder is the one,
 where working source code is actually kept: project JavaScript files are saved
-in ``assets/development/scripts/`` folder and CSS ones &#8212 in 
-``assets/development/styles``, accordingly.
+in ``assets/development/scripts/`` folder and CSS ones - in 
+``assets/development/styles/``, accordingly.
 
 As well, project has its root ``core.php`` file, which holds all basic
 configurations needed to make separation between development and production
@@ -73,7 +73,7 @@ comments.
 Ready?!
 
 First, open terminal (on Mac) and navigate to your project
-``assets/development/build`` folder:
+``assets/development/build/`` folder:
 
 ```bash
 cd /workspace/apache-ant-deploys-builder/assets/development/build/
@@ -92,7 +92,7 @@ Frontend build is ready to be deployed on production environment.
 * Make sure, `DEVEVELOPMENT` constant is set to false in your root
 ``core.php`` file;
 * Copy all your local root files and folders into production server, expect
-``assets/development/`` folder &#8212 it's not a good practice to publish your 
+``assets/development/`` folder - it's not a good practice to publish your 
 development source code on production server.
 
 **That's it! Professional production deploy is ready.** And your users doesn't
