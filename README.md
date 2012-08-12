@@ -111,6 +111,8 @@ included, ask some questions, add more libraries, you might think, could be
 interesting for people, create some Ant tasks in ``build/build.xml``, polish
 them, contribute your updates…
 
+Anyone and everyone is welcome to contribute!
+
 
 ## Useful to have a look ##
 * [Using Apache Ant: Writing a Simple Buildfile](http://ant.apache.org/manual/using.html)
