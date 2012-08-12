@@ -42,7 +42,7 @@ installed, as it's going to perform stripping, packaging and compressing tasks.
 
 ## How to use ##
 Normally, professional teams, try as much as possible to separate Backend code
-from Frontend, keeping JavaScript, CSS and, quite often, even HTML[1] files
+from Frontend, keeping JavaScript, CSS and, quite often, even HTML\* files
 aside from PHP source code. The sample PHP project included into the builder 
 does so as well - we are professionals, aren't we?!
 Root ``assets/`` directory holds 2 sub-directories, where development and 
@@ -58,7 +58,7 @@ versions. When in production, just put *`DEVELOPMENT`* constant to ``false``
 and latest deploy source files from ``assets/production/`` folder will be
 loaded.
 
-> [1] When HTML is kept separated from Backend source code, usually it's made
+> \* When HTML is kept separated from Backend source code, usually it's made
 through templating frameworks.
 
 ### Making deploys ###
