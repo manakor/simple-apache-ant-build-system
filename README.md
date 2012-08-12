@@ -54,7 +54,7 @@ in ``assets/development/scripts/`` folder and CSS ones - in
 
 As well, project has its root ``core.php`` file, which holds all basic
 configurations needed to make separation between development and production
-versions. When in production, just put *`DEVELOPMENT`* constant to ``false``
+versions. When in production, just put `DEVELOPMENT` constant to ``false``
 and latest deploy source files from ``assets/production/`` folder will be
 loaded.
 
@@ -98,7 +98,7 @@ development source code on production server.
 **That's it! Professional production deploy is ready.** And your users doesn't
 need to clear browser cache, because the deploy will be loaded as a new version.
 Check root ``index.php`` file for more information on JavaScript and CSS files
-loading when *`DEVELOPMENT`* constant is set to false in root ``core.php`` file.
+loading when `DEVELOPMENT` constant is set to false in root ``core.php`` file.
 
 
 ## Try, play, join ##
