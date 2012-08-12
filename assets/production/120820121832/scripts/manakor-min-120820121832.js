@@ -1,0 +1,1 @@
+(function(){window.setTimeout(function(){var a=document.getElementById("author");a.innerHTML='Author: <a href="http://twitter.com/manakor" title="Nik Sumeiko">Nik Sumeiko</a>'},2000)})();
