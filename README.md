@@ -1,5 +1,5 @@
-# Apache Ant Deploys builder #
-Simple build system for web sites
+# Simple build system for web sites #
+Based on Apache Ant tasks manager
 
 **[Apache Ant](http://ant.apache.org/ "The Apache Ant project") Deploys builder**
 helps Frontend developers compress their CSS and JavaScript (soon also HTML)
@@ -16,20 +16,20 @@ with its CSS minifier and
 
 ## When to use? ##
 Normally, only large projects teams, such as Google, Yahoo, Facebook, Twitter,
-[Thrives](http://thrives.us/, "Thrives"), Flickr etc prepares automatic
+[Thrives](http://thrives.us/, "Thrives") etc prepares automatic
 deployments and separates their development code from production one. They do it
 to achieve maintainability and easy debugging while developing.
 
 Usually in development mode, JavaScript and CSS code is easily readable and
 understandable, maybe even stored in multiple files. However, when in production
-mode, it's packaged and compressed, which gives code security and additional
-performance. Large teams cares about it very much.
+mode, it's packaged and compressed. That gives code security and additional
+performance. Large teams cares about every bit very much.
 
-**Apache Ant Deploys Builder** gives a very easy way for any developer to learn
+**Simple build system** gives a very easy way for any developer to learn
 how to compress JavaScript and CSS files into professional deployment package
 ready for production environment. Even working on small websites.
 
-> ***So, if you wish to deliver your Frontend code professionally, trying to achieve the best performance and speed your users deserved, Apache Ant Deploys Builder is there for you!***
+> ***So, if you wish to deliver your Frontend code professionally, trying to achieve the best performance and speed your users deserved, Simple build system is there for you!***
 
 
 ## Environment needed ##
@@ -37,24 +37,26 @@ Currently builder is ready for **PHP based projects**, however I am looking
 forward to your contribution to expand it for Java based projects as well.
 
 [Apache Ant](http://ant.apache.org/ "The Apache Ant project") is needed to be
-installed, as it's going to perform stripping, packaging and compressing tasks.
+installed on your computer, as it's going to perform stripping, packaging and
+compressing tasks.
 
 
 ## How to use ##
-Normally, professional teams, try as much as possible to separate Backend code
+Normally, professional teams try as much as possible to separate Backend code
 from Frontend, keeping JavaScript, CSS and, quite often, even HTML\* files
 aside from PHP source code. The sample PHP project included into the builder 
-does so as well - we are professionals, aren't we?!
+does so as well.
+
 Root ``assets/`` directory holds 2 sub-directories, where development and 
 production Frontend resources are kept separated. Production part is updated
 automatically on every new build, however ``development/`` folder is the one,
 where working source code is actually kept: project JavaScript files are saved
-in ``assets/development/scripts/`` folder and CSS ones - in 
+in ``assets/development/scripts/`` folder and CSS ones &#8212 in 
 ``assets/development/styles``, accordingly.
 
 As well, project has its root ``core.php`` file, which holds all basic
 configurations needed to make separation between development and production
-versions. When in production, just put `DEVELOPMENT` constant to ``false``
+versions. When in production, just put ``define('DEVELOPMENT', false);``
 and latest deploy source files from ``assets/production/`` folder will be
 loaded.
 
@@ -82,17 +84,15 @@ Run Ant execution command:
 ant build
 ```
 
-
-
 Building will start immediately. And in a moment, Ant is going to finish
 processing with a message ''BUILD SUCCESSFUL''. Means, actually, your project 
 Frontend build is ready to be deployed on production environment.
 
 ### Deploying to production environment ###
-* Make sure, *`DEVEVELOPMENT`* constant is set to false in your root
+* Make sure, `DEVEVELOPMENT` constant is set to false in your root
 ``core.php`` file;
 * Copy all your local root files and folders into production server, expect
-``assets/development/`` folder — it's not a good practice to publish your 
+``assets/development/`` folder &#8212 it's not a good practice to publish your 
 development source code on production server.
 
 **That's it! Professional production deploy is ready.** And your users doesn't
@@ -108,7 +108,7 @@ errors, make a couple of success builds, deploy to production server several
 times, investigate ``build/macros.xml`` to see how build libraries are
 included, ask some questions, add more libraries, you might think, could be 
 interesting for people, create some Ant tasks in ``build/build.xml``, polish
-them, contribute your updates…
+them, contribute your updates...
 
 **Anyone and everyone is welcome to contribute!**
 
