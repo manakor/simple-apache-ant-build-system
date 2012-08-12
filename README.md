@@ -11,11 +11,10 @@ project version is released.
 Builder contains customized Ant build script,
 [YUI Compressor](http://developer.yahoo.com/yui/compressor/, "YUI Compressor")
 with its CSS minifier and
-[JSLint](http://www.jslint.com/, "JSLint - The JavaScript Code Quality Tool")
-- JavaScript code quality tool.
+[JSLint](http://www.jslint.com/, "JSLint - The JavaScript Code Quality Tool") - JavaScript code quality tool.
 
 
-### When to use? ###
+## When to use? ##
 Normally, only large projects teams, such as Google, Yahoo, Facebook, Twitter,
 [Thrives](http://thrives.us/, "Thrives"), Flickr etc prepares automatic
 deployments and separates their development code from production one. They do it
@@ -33,7 +32,7 @@ ready for production environment. Even working on small websites.
 > ***So, if you wish to deliver your Frontend code professionally, trying to achieve the best performance and speed your users deserved, Apache Ant Deploys Builder is there for you!***
 
 
-### Environment needed ###
+## Environment needed ##
 Currently builder is ready for **PHP based projects**, however I am looking
 forward to your contribution to expand it for Java based projects as well.
 
@@ -41,7 +40,7 @@ forward to your contribution to expand it for Java based projects as well.
 installed, as it's going to perform stripping, packaging and compressing tasks.
 
 
-### How to use ###
+## How to use ##
 Normally, professional teams, try as much as possible to separate Backend code
 from Frontend, keeping JavaScript, CSS and, quite often, even HTML[1] files
 aside from PHP source code. The sample PHP project included into the builder 
@@ -62,7 +61,7 @@ loaded.
 > [1] When HTML is kept separated from Backend source code, usually it's made
 through templating frameworks.
 
-#### Making deploys ####
+### Making deploys ###
 When development came to a "ready" stage, it's time to make a production build
 of your JavaScript, CSS files.
 Build script ``assets/development/build/build.xml`` file holds all the basic 
@@ -89,7 +88,7 @@ Building will start immediately. And in a moment, Ant is going to finish
 processing with a message ''BUILD SUCCESSFUL''. Means, actually, your project 
 Frontend build is ready to be deployed on production environment.
 
-#### Deploying to production environment ####
+### Deploying to production environment ###
 * Make sure, *`DEVEVELOPMENT`* constant is set to false in your root
 ``core.php`` file;
 * Copy all your local root files and folders into production server, expect
@@ -111,7 +110,7 @@ included, ask some questions, add more libraries, you might think, could be
 interesting for people, create some Ant tasks in ``build/build.xml``, polish
 them, contribute your updatesÉ
 
-Anyone and everyone is welcome to contribute!
+**Anyone and everyone is welcome to contribute!**
 
 
 ## Useful to have a look ##
@@ -124,6 +123,6 @@ Anyone and everyone is welcome to contribute!
 Planning to include HTML code cleaning tasks.
 
 
-# Credits #
->* Author: Nik Sumeiko, [http://manakor.org](http://manakor.org, "Manakor labs with Nik Sumeiko")
->* ``build/macros.xml`` initial developer: [Eric Brechemier](http://eric.brechemier.name, "Eric Brechemier")
+## Credits ##
+* Author: Nik Sumeiko, [http://manakor.org](http://manakor.org, "Manakor labs with Nik Sumeiko")
+* ``build/macros.xml`` initial developer: [Eric Brechemier](http://eric.brechemier.name, "Eric Brechemier")
