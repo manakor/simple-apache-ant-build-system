@@ -49,12 +49,16 @@ improve your build script, learn Apache Ant tasks a bit...
 	Build task includes all the tasks listened below, however each of those 
 	could be executed separately as well. Example
 	ant build (makes a full build by executing all task)
-	ant prepare (executes only prepare task)
+	ant prepare (executes only prepare task).
 	-->
-	<target name="build" depends="prepare, copy, compress, package" />
+	<target name="build" depends="copy, compress, package" />
 
 
-
+	
+	<!--
+	Preparing new production build task, including creation of necessary
+	folders used in a further tasks.
+	-->
 	<target name="prepare">
 		<echo>Creating 'styles' and 'scripts' build folders...</echo>
 		<mkdir dir="${production.dir}/prebuild/styles" />
@@ -62,8 +66,13 @@ improve your build script, learn Apache Ant tasks a bit...
 	</target>
 
 
-
-	<target name="copy">
+	
+	<!--
+	Copying development files into new production folders task.
+	Task strongly depends on 'prepare' tasks, as without previosuly
+	created folders, development files could not be copied.
+	-->
+	<target name="copy" depends="prepare">
 		<pathconvert property="prebuild.dir" dirsep="/">
 			<path location="${production.dir}/prebuild" />
 		</pathconvert>
@@ -86,7 +95,12 @@ improve your build script, learn Apache Ant tasks a bit...
 	</target>
 
 
-
+	
+	<!--
+	Compressing JavaScript and CSS files tasks. After compressing, new
+	files '*-min.*' are created. Uncompressed files are deleted, as are not
+	needed anymore. 
+	-->
 	<target name="compress">
 		<echo>Compressing JavaScript/CSS files with YUI Compressor...</echo>
 
@@ -115,7 +129,13 @@ improve your build script, learn Apache Ant tasks a bit...
 	</target>
 
 
-
+	
+	<!--
+	Packaging newly-built JavaScript, CSS files with updated version assignement
+	task. Updated previous project version into next one, inside root
+	'version.ini' file.
+	
+	-->
 	<target name="package" depends="setVersion">
 		<echo>Packaging new build into project version folder</echo>
 
@@ -155,7 +175,10 @@ improve your build script, learn Apache Ant tasks a bit...
 	</target>
 
 
-
+	
+	<!--
+	Dfining a new project version task.
+	-->
 	<target name="setVersion">
 		<!--
 		Sets new project build version automatically, based on current 
