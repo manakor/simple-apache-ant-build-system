@@ -9,14 +9,14 @@ making sure your users get latest files loaded into their browsers once a new
 project version is released.
 
 Builder contains customized Ant build script,
-[YUI Compressor](http://developer.yahoo.com/yui/compressor/, "YUI Compressor")
+[YUI Compressor](http://developer.yahoo.com/yui/compressor/ "YUI Compressor")
 with its CSS minifier and
-[JSLint](http://www.jslint.com/, "JSLint - The JavaScript Code Quality Tool") - JavaScript code quality tool.
+[JSLint](http://www.jslint.com/ "JSLint - The JavaScript Code Quality Tool") - JavaScript code quality tool.
 
 
 ## When to use? ##
 Normally, only large projects teams, such as Google, Yahoo, Facebook, Twitter,
-[Thrives](http://thrives.us/, "Thrives") etc prepares automatic
+[Thrives](http://thrives.us/ "Thrives") etc prepares automatic
 deployments and separates their development code from production one. They do it
 to achieve maintainability and easy debugging while developing.
 
@@ -124,5 +124,5 @@ Planning to include HTML code cleaning tasks.
 
 
 ## Credits ##
-* Author: Nik Sumeiko, [http://manakor.org](http://manakor.org/, "Manakor labs with Nik Sumeiko")
-* ``build/macros.xml`` initial developer: [Eric Brechemier](http://eric.brechemier.name/, "Eric Brechemier")
+* Author: Nik Sumeiko, [http://manakor.org](http://manakor.org/ "Manakor labs with Nik Sumeiko")
+* ``build/macros.xml`` initial developer: [Eric Brechemier](http://eric.brechemier.name/ "Eric Brechemier")
