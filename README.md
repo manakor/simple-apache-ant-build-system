@@ -1,5 +1,5 @@
 # Simple build system for web sites #
-Based on Apache Ant tasks manager
+**Simple Apache Ant build system for websites. Gives easy way to professional deploys.**
 
 **[Apache Ant](http://ant.apache.org/ "The Apache Ant project") Deploys builder**
 helps Frontend developers compress their CSS and JavaScript (soon also HTML)
