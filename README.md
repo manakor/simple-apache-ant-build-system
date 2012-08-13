@@ -1,7 +1,7 @@
 # Simple build system for web sites #
 **Simple Apache Ant build system for websites. Gives easy way to professional deploys.**
 
-**[Apache Ant](http://ant.apache.org/ "The Apache Ant project") Deploys builder**
+**Simple [Apache Ant](http://ant.apache.org/ "The Apache Ant project") build system**
 helps Frontend developers compress their CSS and JavaScript (soon also HTML)
 files into professional package, ready for deploy on production environment. 
 Moreover, **it automatically updates deployed project version on each build**,
