@@ -124,5 +124,5 @@ Planning to include HTML code cleaning tasks.
 
 
 ## Credits ##
-* Author: Nik Sumeiko, [http://manakor.org](http://manakor.org, "Manakor labs with Nik Sumeiko")
-* ``build/macros.xml`` initial developer: [Eric Brechemier](http://eric.brechemier.name, "Eric Brechemier")
+* Author: Nik Sumeiko, [http://manakor.org](http://manakor.org/, "Manakor labs with Nik Sumeiko")
+* ``build/macros.xml`` initial developer: [Eric Brechemier](http://eric.brechemier.name/, "Eric Brechemier")
