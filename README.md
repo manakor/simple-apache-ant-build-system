@@ -1,4 +1,4 @@
-# Simple build system for web sites #
+# Simple Apache Ant build system for web sites #
 **Simple Apache Ant build system for websites. Gives easy way to professional deploys.**
 
 **Simple [Apache Ant](http://ant.apache.org/ "The Apache Ant project") build system**
